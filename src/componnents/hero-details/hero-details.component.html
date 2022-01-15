@@ -1,0 +1,15 @@
+<div>
+<span class="headline">{{heroName}} details!</span>
+
+<div class="fieldsConteiner">
+    <div>
+        <p>id:</p>
+        <label for="name" >name: </label>
+    </div>
+    <div>
+        <p class="idField">{{heroId}}</p>
+        <input id="name"  [(ngModel)]="heroName" type="text">
+    </div>
+</div>
+<button (click)="closeDetails()">back</button>
+</div>
