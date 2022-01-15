@@ -1,0 +1,10 @@
+
+<div *ngIf="!showDetails; else elseBlock">
+    <b>Top Heroes</b>
+<div class="buttonsContainer">
+   <button *ngFor="let hero of heroes; trackBy: trackByName" (click)="selectHero(hero)">{{hero.name}}</button>
+</div>
+</div>
+<ng-template #elseBlock>
+     <app-hero-details [heroId]="selectedHero.id" (onClose)="closeDetails()"></app-hero-details>
+</ng-template>

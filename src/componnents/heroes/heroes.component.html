@@ -1,0 +1,19 @@
+
+<div *ngIf="!showDetails; else elseBlock">
+    <b>My Heroes</b>
+<br>
+<div>
+   <div *ngFor="let hero of heroes; trackBy: trackByName" (click)="selectHero(hero)" class="heroListItem">
+    <div class="heroId"><p>{{hero.id}}</p></div>
+    <div [ngClass]="{'heroName': true, 'selectedHeroName' : hero.id === selectedHero?.id }"><p>{{hero.name}}</p></div>
+</div> 
+</div>
+
+<div *ngIf="selectedHero">
+    <p><b>{{selectedHero.name}}</b> is my heroes</p>
+    <button (click)="displayDetails()">View details</button>
+</div>
+</div>
+<ng-template #elseBlock>
+     <app-hero-details [heroId]="selectedHero.id" (onClose)="closeDetails()"></app-hero-details>
+</ng-template>
